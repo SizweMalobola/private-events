@@ -1,7 +1,35 @@
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+<div class="row">
+    <div class="col-8 bg-light">
+      <p>Image</p>
+    </div>
+    <div class="col-4">
+      <p><%= @event.starting_date %></p>
+      <p><%= @event.title %></p>
+    </div>
+    <div class="col-12">
+      <p class="ms-auto">Register</p>
+    </div>
+</div>
+<div class="row">
+  <div class="col-8">
+    <p>Description</p>
+    <%= @event.description %>
+  </div>
+  <div class="col-4">
+    <div>
+      <p>Date and time</p>
+      <p class="mb-0" ><%= "#{@event.starting_date} - #{@event.ending_date}" %></p>
+      <p><%= "#{@event.starting_time} - #{@event.ending_time}" %></p>
+    </div>
+    <div>
+      <p>Location</p>
+      <p><%= @event.location %></p>
+    </div>
+  </div>
+</div>
+<% if user_signed_in? && current_user.id == @event.creator.id %>
+  <%= link_to 'Edit', edit_event_path(@event), class:'link' %>
+  <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' }, class:'link' %>
+<% end %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path, class:'link' %>
