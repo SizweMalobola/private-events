@@ -1,0 +1,14 @@
+<div class="card col-3" >
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+        <h5 class="card-title"><%= event.title %></h5>
+        <p>Starting Date & Time</p>
+        <p><%= event.location %></p>
+        <p>Attendees</p>
+        <%= link_to 'Show', event, class:'card-link' %>
+        <% if user_signed_in? && current_user.id == event.creator.id %>
+        <%= link_to 'Edit', edit_event_path(event), class:'card-link' %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:'card-link' %>
+        <% end %>
+    </div>
+</div>
