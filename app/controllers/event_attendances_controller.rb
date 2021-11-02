@@ -13,6 +13,10 @@ class EventAttendancesController < ApplicationController
     end
 
     def destroy
+        @event_attendance = EventAttendance.find(params[:id])
+        @event_attendance.destroy
+        flash[:success] = "You have successfully cancelled your attendance to an event"
+        redirect_to root_path
     end
 
 end

@@ -15,7 +15,7 @@
     <% else %>
       <%# checks whether the current user has attended the event %>
       <% if user_signed_in? && current_user.attended_events.where(id: @event.id).exists? %>
-        <%= link_to 'Cancel Attendance', event_attendances_url, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        <%= link_to 'Cancel Attendance',event_attendance_path(EventAttendance.where(user_id:current_user[:id],event_id:@event[:id]).first[:id]), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
       <% else %>
         <%= form_with(url: event_attendances_url) do |f| %>
           <%= f.hidden_field :event_id, value: @event.id %>
