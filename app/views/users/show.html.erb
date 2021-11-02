@@ -1,6 +1,14 @@
-<h1>Individual User</h1>
-<h3>Created Events</h3>
+<h1>My Events</h1>
+<div>
+    <h3>Created Events</h3>
+    <div class="row">
+        <%= render @events %>
+    </div>
+</div>
 
-<% @events.each do |event| %>
-    <div><h1><%= event.title %></h1></div>
-<% end %>
+<div>
+    <h3>Attended Events</h3>
+    <div class="row">
+        <%= render current_user.attended_events %>
+    </div>
+</div>
