@@ -1,13 +1,28 @@
 <div class="row">
     <div class="col-8 bg-light">
       <p>Image</p>
+      <%= params %>
     </div>
     <div class="col-4">
       <p><%= @event.starting_date %></p>
       <p><%= @event.title %></p>
     </div>
     <div class="col-12">
-      <p class="ms-auto">Register</p>
+    <%# host cannot attend %>
+    <%# if a user is a attendee, give an option to opt-out %>
+    <% if user_signed_in? && @event.creator == current_user %>
+      <p>You Are Hosting This Event</p>
+    <% else %>
+      <%# checks whether the current user has attended the event %>
+      <% if user_signed_in? && current_user.attended_events.where(id: @event.id).exists? %>
+        <%= link_to 'Cancel Attendance', event_attendances_url, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+      <% else %>
+        <%= form_with(url: event_attendances_url) do |f| %>
+          <%= f.hidden_field :event_id, value: @event.id %>
+          <%= f.submit 'Attend Event', class:'btn btn-success' %>
+        <% end %>
+      <% end %>
+    <% end %>
     </div>
 </div>
 <div class="row">
