@@ -50,22 +50,41 @@
     <h1>Date and time</h1>
     <p>Tell event-goers when your event starts and ends so they can make plans to attend.</p>
     <div>
+    <% unless event.valid? %>
       <div class="field form-group">
         <%= form.label :starting_date %>
-        <%= form.text_field :starting_date %>
+        <%= form.date_field :starting_date %>
       </div>
       <div class="field form-group">
         <%= form.label :starting_time %>
-        <%= form.text_field :starting_time %>
+        <%= form.time_field :starting_time %>
       </div>
       <div class="field form-group">
         <%= form.label :ending_date %>
-        <%= form.text_field :ending_date %>
+        <%= form.date_field :ending_date %>
       </div>
       <div class="field form-group">
         <%= form.label :ending_time %>
-        <%= form.text_field :ending_time %>
+        <%= form.time_field :ending_time %>
+      </div>     
+    <% else %>
+      <div class="field form-group">
+        <%= form.label :starting_date %>
+        <%= form.date_field :starting_date, value: event[:starting_date] %>
       </div>
+      <div class="field form-group">
+        <%= form.label :starting_time %>
+        <%= form.time_field :starting_time, value: event[:starting_time] %>
+      </div>
+      <div class="field form-group">
+        <%= form.label :ending_date %>
+        <%= form.date_field :ending_date, value: event[:ending_date] %>
+      </div>
+      <div class="field form-group">
+        <%= form.label :ending_time %>
+        <%= form.time_field :ending_time, value: event[:ending_time] %>
+      </div>
+    <% end %>
     </div>
     
     <select aria-invalid="false" aria-labelledby="time-zone-label" class="eds-field-styled__input eds-field-styled__select" role="listbox" id="time-zone" name="venueTimeZone">
