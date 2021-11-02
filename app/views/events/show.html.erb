@@ -30,16 +30,30 @@
     <p>Description</p>
     <%= @event.description %>
   </div>
-  <div class="col-4">
+
+  <div class="col-4">    
     <div>
       <p>Date and time</p>
       <p class="mb-0" ><%= "#{@event.starting_date} - #{@event.ending_date}" %></p>
       <p><%= "#{@event.starting_time} - #{@event.ending_time}" %></p>
     </div>
+    
     <div>
       <p>Location</p>
       <p><%= @event.location %></p>
     </div>
+
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> <%= "Attendees (#{@event.attendees.count})" %> </a>
+      <% if @event.attendees.count %>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% @event.attendees.each do |attendee| %>
+        <li class="dropdown-item"><%= attendee.email %></li>
+        <% end %>
+      </ul>
+      <% end %>
+  </div>
+  
   </div>
 </div>
 <% if user_signed_in? && current_user.id == @event.creator.id %>
