@@ -1,5 +1,7 @@
 <div class="card col-3" >
-    <img src="" class="card-img-top" alt="">
+    <% if event.event_image.blob %>
+      <%= image_tag event.event_image, alt: "event image", class: "img-fluid card-img-top" %>
+    <% end %>
     <div class="card-body">
         <h5 class="card-title mb-3"><%= event.title %></h5>
         <h6 class="card-subtile text-muted"><%= "Date & Time: #{event.starting_date} @#{event.starting_time}" %></h6>
