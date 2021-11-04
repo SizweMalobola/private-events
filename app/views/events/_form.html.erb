@@ -21,15 +21,17 @@
         <p class="card-subtitle text-muted mb-2">Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
         <div class="field form-group">
           <% form.label :title %>
-          <%= form.text_field :title, class: "form-control", placeholder: "Email" %>
+          <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
         </div>
       </div>
 
       <div class="mb-4">
         <h5 class="card-title">Main Event Image</h5>
         <p class="card-subtitle text-muted mb-2">This is the first image attendees will see at the top of your listing.</p>
+        <p class="card-subtitle text-muted mb-2">Drag & drop or click to add main event image</p>
         <div class="field form-group">
-          <p class="card-subtitle text-muted mb-2">Drag & drop or click to add main event image</p>
+          <% form.label :event_image %>
+          <%= form.file_field :event_image, class: "form-control" %>
         </div>
       </div>
 
