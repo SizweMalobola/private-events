@@ -3,4 +3,5 @@ class Event < ApplicationRecord
     has_rich_text :description
     has_many :event_attendances
     has_many :attendees, through: :event_attendances, source: :attendee
+    has_one_attached :event_image
 end
