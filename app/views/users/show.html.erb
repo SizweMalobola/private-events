@@ -10,10 +10,10 @@
     <h3>Attended Events</h3>
     <h4 class="text-primary">Upcoming Events</h4>
     <div class="row">
-        <%= render current_user.attended_events %>
+        <%= render current_user.attended_events.where("starting_date >= ?", Date.today) %>
     </div>
     <h4 class="text-muted">Past Events</h4>
     <div class="row">
-        <%= render current_user.attended_events %>
+        <%= render current_user.attended_events.where("ending_date < ?", Date.today) %>
     </div>
 </div>
