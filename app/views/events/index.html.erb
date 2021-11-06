@@ -5,5 +5,5 @@
 
 <h1 class="py-4">Recent Events</h1>
 <div class='row g-4'>
-  <%= render @events %>
+  <%= render @events.order(created_at: :desc) %>
 </div>
