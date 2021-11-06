@@ -5,3 +5,20 @@
 .card-img-top {
   height: 250px !important;
 }
+#hero {
+  height: 500px;
+  background: linear-gradient(
+      90deg,
+      rgba(170, 221, 119, 0.425),
+      rgba(13, 109, 253, 0.404)
+    ),
+    url(hero-image.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h4 {
+    color: rgb(255, 204, 77);
+  }
+}
