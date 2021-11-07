@@ -57,7 +57,7 @@
         <h5 class="card-title">Date and time</h5>
         <p class="card-subtitle text-muted mb-2">Tell event-goers when your event starts and ends so they can make plans to attend.</p>
         <div>
-        <% unless event.valid? %>
+        <% unless true %>
           <div class="field form-group">
             <%= form.label :starting_date %>
             <%= form.date_field :starting_date, class: "form-control" %>
