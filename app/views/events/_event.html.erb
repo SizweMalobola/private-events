@@ -1,16 +1,18 @@
-<div class="card col-3" >
-    <% if event.event_image.blob %>
-      <%= image_tag event.event_image, alt: "event image", class: "img-fluid card-img-top" %>
-    <% end %>
-    <div class="card-body">
-        <h5 class="card-title mb-3"><%= event.title %></h5>
-        <h6 class="card-subtile text-muted"><%= "Date & Time: #{event.starting_date} @#{event.starting_time}" %></h6>
-        <h6><%= "Location: #{event.location}" %></h6>
-        <h6>Attendees (<%= event.attendees.count %>)</h6>
-        <%= link_to 'Show', event, class:'card-link' %>
-        <% if user_signed_in? && current_user.id == event.creator.id %>
-        <%= link_to 'Edit', edit_event_path(event), class:'card-link' %>
-        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:'card-link' %>
-        <% end %>
-    </div>
+<div class="col">
+  <div class="card rounded shadow-sm mb-4" >
+      <% if event.event_image.blob %>
+        <%= image_tag event.event_image, alt: "event image", class: "img-fluid card-img-top" %>
+      <% end %>
+      <div class="card-body">
+          <h5 class="card-title mb-3"><%= event.title %></h5>
+          <h6 class="card-subtile text-muted"><%= "Date & Time: #{event.starting_date} @#{event.starting_time}" %></h6>
+          <h6><%= "Location: #{event.location}" %></h6>
+          <h6>Attendees (<%= event.attendees.count %>)</h6>
+          <%= link_to 'Show', event, class:'card-link' %>
+          <% if user_signed_in? && current_user.id == event.creator.id %>
+          <%= link_to 'Edit', edit_event_path(event), class:'card-link' %>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class:'card-link' %>
+          <% end %>
+      </div>
+  </div>
 </div>
