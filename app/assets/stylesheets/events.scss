@@ -32,3 +32,11 @@
     white-space: nowrap;
   }
 }
+
+#jumbotron {
+  background-image: url(08.jpeg), url(01.jpeg), url(03.jpeg), url(04.jpeg),
+    url(05.jpeg), url(06.jpeg);
+  background-position: 0 0, 20% 0, 40% 0, 60% 0, 80% 0, 100% 0;
+  background-size: contain, contain, contain;
+  background-repeat: no-repeat;
+}
