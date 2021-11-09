@@ -1,3 +1,5 @@
+<% provide(:title, "#{@event.title}, #{Date.parse(@event.starting_date).strftime("%a, %B %d, %Y")}") %>
+
 <div class="row my-4 ">
     <div class="col-8 bg-light text-center">
       <% if @event.event_image.blob %>
