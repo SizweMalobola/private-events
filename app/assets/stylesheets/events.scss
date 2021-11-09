@@ -12,7 +12,7 @@
       rgba(170, 221, 119, 0.425),
       rgba(13, 109, 253, 0.404)
     ),
-    url(hero-image.jpg);
+    image-url("hero-image.jpg");
   background-position: center;
   background-size: cover;
   display: flex;
@@ -34,8 +34,9 @@
 }
 
 #jumbotron {
-  background-image: url(08.jpeg), url(01.jpeg), url(03.jpeg), url(04.jpeg),
-    url(05.jpeg), url(06.jpeg);
+  background-image: image-url("08.jpeg"), image-url("01.jpeg"),
+    image-url("03.jpeg"), image-url("04.jpeg"), image-url("05.jpeg"),
+    image-url("06.jpeg");
   background-position: 0 0, 20% 0, 40% 0, 60% 0, 80% 0, 100% 0;
   background-size: contain, contain, contain;
   background-repeat: no-repeat;
