@@ -1,5 +1,10 @@
 class ChangeDateColumnFromEvents < ActiveRecord::Migration[6.1]
-  def change
-    change_column :events, :date, :starting_date
+  def chamge
+    reversible do |dir|
+      change_column :events do |t|
+        dir.up {t.change :starting_date, :date}
+        dir.down {t.change :starting_date, :string}
+      end
+    end
   end
 end
