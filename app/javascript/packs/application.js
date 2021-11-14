@@ -14,5 +14,10 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-require("trix")
-require("@rails/actiontext")
+require("trix");
+require("@rails/actiontext");
+
+window.addEventListener("trix-file-accept", (e) => {
+  e.preventDefault();
+  alert.apply("File attachment not supported!");
+});
